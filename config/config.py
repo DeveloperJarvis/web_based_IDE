@@ -28,10 +28,34 @@
 # --------------------------------------------------
 
 # --------------------------------------------------
-# main MODULE
+# config MODULE
 # --------------------------------------------------
 
 # --------------------------------------------------
 # imports
 # --------------------------------------------------
+import os
+from pathlib import Path
+
+
+class AppConfig:
+    """
+    Global application configuration
+    """
+
+    def __init__(self):
+        
+        self.app_name = "Browser Code Executor"
+        self.version = "0.1.0"
+
+        # server
+        self.host = os.getenv("APP_HOST", "0.0.0.0")
+        self.port = int(os.getenv("APP_PORT", 8000))
+
+        # logging
+        self.log_level = os.getenv("LOG_LEVEL", "INFO")
+        self.log_dir = Path("logs")
+
+        # execution limits
+        
 

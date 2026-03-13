@@ -28,10 +28,45 @@
 # --------------------------------------------------
 
 # --------------------------------------------------
-# main MODULE
+# setup MODULE
 # --------------------------------------------------
 
 # --------------------------------------------------
 # imports
 # --------------------------------------------------
+from setuptools import setup, find_packages
 
+
+setup(
+    name="web_based_ide",
+    version="0.1.0",
+    description="Web Based Code Editor and Executor",
+    author="Developer Jarvis",
+    url="https://github.com/DeveloperJarvis",
+    packages=find_packages(),
+    python_requires=">=3.9",
+    install_requires=[
+        "fastapi",
+        "uvicorn",
+        "pydantic",
+    ],
+    entry_points={
+        "console_scripts": [
+            "code-executor=main:main"
+        ]
+    },
+    include_package_data=True,
+    extras_require={
+        "dev": [
+            "pytest",
+            "black",
+            "flake8",
+            "mypy",
+        ]
+    },
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+        "Operating System :: OS Independent",
+    ],
+)
